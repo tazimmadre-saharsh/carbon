@@ -9,5 +9,4 @@ const CarbonDataSchema = new Schema(
   { timestamps: true }
 );
 
-
 export const CarbonData = model("carbondata", CarbonDataSchema);

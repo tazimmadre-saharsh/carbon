@@ -1,13 +1,13 @@
 // packages
 import express, { urlencoded, json } from "express";
 const app = express();
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 import morgan from "morgan";
 import { config } from "dotenv";
 import cors from "cors";
 import expressListRoutes from "express-list-routes";
 
-import CarbonRouter from './resources/user/user.router';
+import CarbonRouter from "./resources/user/user.router";
 
 config();
 const PORT = process.env.PORT || 3000;
