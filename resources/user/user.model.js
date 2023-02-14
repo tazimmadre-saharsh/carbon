@@ -3,10 +3,9 @@ const { Schema, model } = mongoose;
 
 const CarbonDataSchema = new Schema(
   {
-    tempInDegrees: String,
-    tempInFarenheit: String,
+    temp: Schema.Types.String,
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 export const CarbonData = model("carbondata", CarbonDataSchema);

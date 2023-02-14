@@ -1,11 +1,8 @@
 import { CarbonData } from "./user.model.js";
 
 const postCarbonData = async (req, res) => {
-  const { tempInDegree, tempInFarenheit } = req.body;
-  const data = await CarbonData.create({
-    tempInDegree,
-    tempInFarenheit,
-  });
+  // const { airTemp, waterTemp, lightIntensity, co2,phValue } = req.body;
+  const data = await CarbonData.create(req.body);
   res.send({ data, status: "OK" });
 };
 

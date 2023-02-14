@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
   res.json("Server is Running");
 });
 
-app.use("/api/v1/carbondata/temp", CarbonRouter);
+app.use("/api/v1/carbondata/", CarbonRouter);
 
 export const start = async () => {
   try {
