@@ -1,4 +1,4 @@
-import { CarbonData } from "./user.model.js";
+import { CarbonData } from "./carbondata.js";
 
 const postCarbonData = async (req, res) => {
   // const { airTemp, waterTemp, lightIntensity, co2,phValue } = req.body;

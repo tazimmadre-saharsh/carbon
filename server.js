@@ -7,7 +7,8 @@ import { config } from "dotenv";
 import cors from "cors";
 import expressListRoutes from "express-list-routes";
 
-import CarbonRouter from "./resources/user/user.router";
+import CarbonRouter from "./resources/carbon/carbonRouter";
+import QRCodeRouter from "./resources/qrcode/qrcodeRouter";
 
 config();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/carbondata/", CarbonRouter);
+app.use("/api/v1/qrcode/", QRCodeRouter );
 
 export const start = async () => {
   try {

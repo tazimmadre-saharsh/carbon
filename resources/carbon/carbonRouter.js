@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getCarbonData, postCarbonData } from "./user.controllers.js";
+import { getCarbonData, postCarbonData } from "./carboncontroller.js";
 
 const router = Router();
 
