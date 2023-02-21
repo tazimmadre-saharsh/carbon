@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { CarbonData } from "./carbondata.js";
 
 const postCarbonData = async (req, res) => {
@@ -7,7 +8,12 @@ const postCarbonData = async (req, res) => {
 };
 
 const getCarbonData = async (req, res) => {
-  const data = await CarbonData.find({});
+  const {startDate, endDate} = req.body;
+  let q={};
+  if(startDate && endDate){
+    q.createdAt = { $gte: moment(startDate).toDate(), $lt: moment(endDate).toDate() };
+  }
+  const data = await CarbonData.find(q);
   res.send({ data, status: "OK" });
 };
 
