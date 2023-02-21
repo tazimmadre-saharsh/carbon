@@ -8,7 +8,7 @@ const postCarbonData = async (req, res) => {
 };
 
 const getCarbonData = async (req, res) => {
-  const {startDate, endDate} = req.body;
+  const {startDate, endDate} = req.query;
   let q={};
   if(startDate && endDate){
     q.createdAt = { $gte: moment(startDate).toDate(), $lt: moment(endDate).toDate() };
