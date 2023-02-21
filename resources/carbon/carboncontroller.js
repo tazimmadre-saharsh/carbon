@@ -11,7 +11,11 @@ const getCarbonData = async (req, res) => {
   const {createdAt} = req.query;
   let q={};
   if(createdAt){
-    q.createdAt = { $gte: moment(createdAt).toDate(), $lt: moment(createdAt).subtract(1,'day').toDate() };
+    const startDate = new Date(createdAt);
+    startDate.setHours(0, 0, 0, 0);
+    const endDate = new Date(createdAt);
+    endDate.setHours(23,59,59,999);
+    q.createdAt = { $gte: startDate, $lt: endDate };
   }
   const data = await CarbonData.find(q);
   res.send({ data, status: "OK" });
