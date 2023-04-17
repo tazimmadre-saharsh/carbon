@@ -9,6 +9,7 @@ import expressListRoutes from "express-list-routes";
 
 import CarbonRouter from "./resources/carbon/carbonRouter";
 import QRCodeRouter from "./resources/qrcode/qrcodeRouter";
+import UltrasensorRouter from './resources/ultrasensor/ultrasensorRouter';
 
 config();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +25,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/carbondata/", CarbonRouter);
-app.use("/api/v1/qrcode/", QRCodeRouter );
+app.use("/api/v1/qrcode/", QRCodeRouter);
+app.use("/api/v1/ultrasensor-data/", UltrasensorRouter);
 
 export const start = async () => {
   try {
