@@ -15,6 +15,7 @@
   "author": "Tazim Madre",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.312.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^9.0.2",
@@ -22,7 +23,9 @@
     "express-list-routes": "^1.1.3",
     "moment": "^2.29.4",
     "mongoose": "^5.12.9",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7",

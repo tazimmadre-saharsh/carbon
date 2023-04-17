@@ -10,6 +10,7 @@ import expressListRoutes from "express-list-routes";
 import CarbonRouter from "./resources/carbon/carbonRouter";
 import QRCodeRouter from "./resources/qrcode/qrcodeRouter";
 import UltrasensorRouter from './resources/ultrasensor/ultrasensorRouter';
+import upload from './resources/upload';
 
 config();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,13 @@ app.get("/", (req, res) => {
 app.use("/api/v1/carbondata/", CarbonRouter);
 app.use("/api/v1/qrcode/", QRCodeRouter);
 app.use("/api/v1/ultrasensor-data/", UltrasensorRouter);
+//util single file upload API
+app.post("/upload", upload.single('image'), async (req, res) => {
+  if (!req.file) {
+    res.status(401).send("No Image found to upload");
+  }
+  res.status(201).send({ imageUrl: req.file.location });
+});
 
 export const start = async () => {
   try {
